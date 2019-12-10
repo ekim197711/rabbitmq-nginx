@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "name": "guest",
+      "password": "guest",
+      "tags": "none"
+    },
+    {
+      "name": "mike",
+      "password": "mike",
+      "tags": "administrator"
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "guest",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "mike",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "parameters": [],
+  "policies": [
+
+  ],
+  "exchanges": [
+    {
+      "name": "custom.myexchange1",
+      "vhost": "/",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "queues": [
+    {
+      "name": "custom.myqueue1",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "",
+        "x-dead-letter-routing-key": ""
+      }
+    }
+  ],
+  "bindings": [
+    {
+      "source": "custom.myexchange1",
+      "vhost": "/",
+      "destination": "custom.myqueue1",
+      "destination_type": "queue",
+      "routing_key": "test123",
+      "arguments": {}
+    }
+  ]
+}

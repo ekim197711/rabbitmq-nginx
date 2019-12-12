@@ -34,7 +34,17 @@
   ],
   "parameters": [],
   "policies": [
-
+    {
+      "vhost": "/",
+      "name": "mirrorqueues",
+      "apply-to": "queues",
+      "pattern":"^.*",
+      "definition": {
+        "ha-mode":"exactly",
+        "ha-params":2,
+        "ha-sync-mode":"automatic"
+      }
+    }
   ],
   "exchanges": [
     {

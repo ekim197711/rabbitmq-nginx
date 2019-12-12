@@ -11,7 +11,7 @@ services:
     build: rabbitmq/.
     environment:
       - RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbitmq-custom
-      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit log [{console,[{level,debug}]}]
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit log [{console,[{level,debug}]}] -setcookie myCookieSecretXCBSDFASDGASFG
       - RABBITMQ_NODENAME=rabbit@rabbitmq1
     ports:
       - "5600:5672"
@@ -21,7 +21,7 @@ services:
     build: rabbitmq/.
     environment:
       - RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbitmq-custom
-      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit log [{console,[{level,debug}]}]
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit log [{console,[{level,debug}]}] -setcookie myCookieSecretXCBSDFASDGASFG
       - RABBITMQ_NODENAME=rabbit@rabbitmq2
     ports:
       - "5700:5672"

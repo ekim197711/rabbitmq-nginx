@@ -6,6 +6,8 @@ services:
     ports:
       - "5000:5000"
       - "15000:15000"
+    networks:
+      - rmq
 
   rabbitmq1:
     build: rabbitmq/.
@@ -16,6 +18,8 @@ services:
     ports:
       - "5600:5672"
       - "15600:15672"
+    networks:
+      - rmq
 
   rabbitmq2:
     build: rabbitmq/.
@@ -26,3 +30,9 @@ services:
     ports:
       - "5700:5672"
       - "15700:15672"
+    networks:
+      - rmq
+
+networks:
+  rmq:
+    external: true

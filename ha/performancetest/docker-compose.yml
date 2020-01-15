@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  mikesperftest:
+    image: pivotalrabbitmq/perf-test:latest
+    command: "--uri 'amqp://mike:mike@nginxrmq:5000' --queue-pattern 'mike-perf-%d'
+                                               --queue-pattern-from 1 --queue-pattern-to 10
+                                               --producers 10 --consumers 0 --rate 50"
+
+    networks:
+      - rmq
+
+networks:
+  rmq:
+    external: true
+
+#     pivotalrabbitmq/perf-test:latest --uri amqp://rabbitmq
